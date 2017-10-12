@@ -1,0 +1,50 @@
+shell mkdir kfo-versicherungsvergleich
+shell mkdir 2017-08-18-neu
+rename konfigurator-schritt-02.jpg
+rename konfigurator-schritt-03.jpg
+bulkrename 
+shell unp candicerenoir_slsdx264_s04e07.part1.rar 
+rename Candice Renoir - 4x07.mkv
+rename anfrage-02.jpg
+rename 2013-04-04-vema-seo
+shell mkdir 2017-09-29
+shell unp candicerenoir_slsdx264_s04e08.part1.rar 
+rename Candice Renoir - 4x08.mkv
+shell mkdir 2016
+shell vim reisekosten-info
+rename Unterlagen-Steuer_2016-2016.pdf
+rename pkv-kontoauszug-2016.pdf
+rename 2017-III.pdf
+search ent
+search mf
+open_with evince
+shell unp candicerenoir_slsdx264_s04e09.part1.rar 
+rename Candice Renoir - 4x09.mkv
+rename kunden-logo-02.jpg
+rename kunden-logo-03.jpg
+rename kunden-logo-04.jpg
+rename kunden-logo-05.jpg
+rename kunden-logo-06.jpg
+search har
+shell sctovim module.css 
+rename scripts.survey.js
+rename The Big Bang Theory - 11x02 - The Retraction Reaction.srt
+shell unp tbbtAL1102.rar 
+rename The Big Bang Theory - 11x02 - The Retraction Reaction.mkv
+shell mkdir 2017-10-06
+open_with vim
+shell mkdir stick
+shell mkdir ungeordnet
+search 
+shell mkdir yab_amazon_product_api
+search tomm
+search schu
+open_with 1
+shell -p d
+search conf
+rename solarized-ansi-dark.py.bak
+rename solarized-ansi-dark.py
+rename solarized-256color.py
+search im
+rename logo.20171011.svg
+delete
