@@ -12,10 +12,10 @@ set t_Co=256
 colorscheme solarized
 let g:solarized_hitrail=1
 " linenumbers
-map <F11> :set nu!<CR>
+map <F11> :set nu! rnu!<CR>
 map <F12> :set paste!<CR>
-set number
-set numberwidth=5
+set number relativenumber
+"set numberwidth=5
 " height of bottom bar
 set cmdheight=2
 set laststatus=2
