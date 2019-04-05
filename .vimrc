@@ -17,7 +17,8 @@ map <F12> :set paste!<CR>
 set number relativenumber
 "set numberwidth=5
 " height of bottom bar
-set cmdheight=2
+" set cmdheight=2
+set showtabline=2
 set laststatus=2
 set hidden
 set wildmenu
@@ -66,11 +67,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" dragable vim
-vmap  <expr>  <S-LEFT>   DVB_Drag('left')
-vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
-vmap  <expr>  <S-DOWN>   DVB_Drag('down')
-vmap  <expr>  <S-UP>     DVB_Drag('up')
 " insert newlines in normal mode
 nnoremap <leader>o :<C-u>put =repeat(nr2char(10),v:count)<Bar><CR>
 nnoremap <leader>O k<ESC>:<C-u>put =repeat(nr2char(10),v:count)<Bar><CR>
@@ -112,14 +108,27 @@ nmap <Leader>n :enew<CR>
 nmap <Leader>u= yyp<c-v>$r=o
 nmap <Leader>u- yyp<c-v>$r-o
 nmap <Leader>u_ yyp<c-v>$r_o
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-" CtrlP Shortcuts
-nmap <C-b> :CtrlPBuffer<CR>
-nmap <C-f> :CtrlP<CR>
-nmap <C-p> :CtrlPMixed<CR>
+" lightline
+let g:lightline = { 'colorscheme': 'solarized' }
+" and bufferline integration
+let g:lightline.tabline = { 'left': [['buffers']], 'right': [] }
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline#bufferline#show_number  = 2
+let g:lightline#bufferline#unnamed      = '[No Name]'
+" hide paths
+" let g:lightline#bufferline#filename_modifier = ':t'
+" easy access to tabs/buffers
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 " map bookmark shortcuts
 nnoremap ' `
 " syntastic syntax check, disable by default
