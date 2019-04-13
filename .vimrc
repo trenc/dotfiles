@@ -4,18 +4,18 @@ filetype indent plugin on
 execute pathogen#infect()
 " set shorter timeoutlen
 set timeoutlen=600
-syntax on
+" syntax on
 set encoding=utf-8
 " colorscheme
 set background=dark
-set t_Co=256
-colorscheme solarized
-let g:solarized_hitrail=1
+" set t_Co=256
+" colorscheme solarized
+" let g:solarized_hitrail=0
 " linenumbers
 map <F11> :set nu! rnu!<CR>
 map <F12> :set paste!<CR>
 set number relativenumber
-"set numberwidth=5
+" set numberwidth=5
 " height of bottom bar
 " set cmdheight=2
 set showtabline=2
@@ -24,6 +24,7 @@ set hidden
 set wildmenu
 set showcmd
 set hlsearch
+set visualbell
 " map enter to :noh (disable search highlights);remove :noh in command line
 nnoremap <cr> :noh<cr><cr>:<backspace>
 set incsearch
@@ -40,8 +41,8 @@ set tabstop=2
 set autoindent
 set copyindent
 set preserveindent
-set colorcolumn=80
-set cursorline
+" set colorcolumn=80
+" set cursorline
 " remap <ESC> 
 imap jk <ESC>
 vmap jk <ESC>
@@ -59,14 +60,6 @@ set scrolloff=3
 set foldenable " Turn on folding
 set foldmethod=indent " Fold on the indent (damn you python)
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-" syntasitic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 " insert newlines in normal mode
 nnoremap <leader>o :<C-u>put =repeat(nr2char(10),v:count)<Bar><CR>
 nnoremap <leader>O k<ESC>:<C-u>put =repeat(nr2char(10),v:count)<Bar><CR>
@@ -98,6 +91,12 @@ inoremap '      ''<Left>
 inoremap '<CR>  '<CR>'<Esc>O
 inoremap ''     '
 inoremap ..     <RIGHT>
+" surroundings
+nnoremap <Leader>s" ciw"<C-r>""<Esc>
+nnoremap <Leader>s' ciw'<C-r>"'<Esc>
+nnoremap <Leader>sx bhxwx
+" console.log()
+nnoremap <Leader>sl ciwconsole.log(<C-r>");<Esc>
 " buffers
 nmap <Leader>bb :ls<CR>:buffer<Space>
 nmap <Leader>j :bnext<CR>
@@ -136,6 +135,14 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 " enable on <F10> or toggle leader <F10>
 nmap <F10> :SyntasticCheck<CR>
 nmap <Leader><F10> ::SyntasticToggleMode<CR>
+" syntasitic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " netrw
 nmap <F7> :Rexplore<CR>
 let g:netrw_liststyle = 3
