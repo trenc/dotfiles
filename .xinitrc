@@ -1,36 +1,29 @@
 #!/bin/bash
 
-# autostarts
-
+# no bells and whistles
 xset b off
 xset b 0 0 0
+
+# enable and rotate second screen
+xrandr --output DP1 --rotate left --pos 1920x0 --mode 1920x1200
+
+# theme from Xresources
 xrdb -load ~/.Xresources &
+
+# numlock on
 numlockx &
 
+# key bindings
+xbindkeys
 
-# start window manager
+# screenlock
+sh ~/apps/bin/locker.sh &
 
-DEFAULT_SESSION=awesome
+# execute autostarts
+for file in ~/.config/autostart/*
+do
+	dex "$file" &
+done
 
-case "$1" in
-	awesome)
-		exec awesome ;;
-	openbox)
-		exec openbox-session ;;
-	xfce)
-		exec xfce4-session ;;
-	gnome3)
-		exec gnome-session ;;
-	kde)
-		exec startkde ;;
-	cinnamon)
-		exec gnome-session-cinnamon ;;
-	razor-qt)
-		exec razor-session ;;
-	lxde)
-		exec lxsession ;;
-	mate)
-		exec mate-session ;;
-	*)
-		exec $DEFAULT_SESSION ;;
-esac
+# awesome
+exec awesome
