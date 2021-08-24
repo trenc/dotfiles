@@ -18,6 +18,17 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc") {}
+local volume_widget = require("awesome-wm-widgets.volumearc-widget.volumearc") {}
+local brightness_widget = require("awesome-wm-widgets.brightnessarc-widget.brightnessarc") {}
+local net_widgets = require("net_widgets")
+net_wireless = net_widgets.wireless({
+	interface = "wlan0",
+	font = "Terminus 9",
+	onclick = "xterm -e 'iwctl station wlan0 get-networks; bash'"
+})
+net_connected = net_widgets.internet({ timeout = 5 })
+
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
@@ -229,7 +240,11 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            battery_widget,
+            brightness_widget,
+            volume_widget,
+            net_wireless,
+            net_connected,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -584,22 +599,20 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- {{{ Autostarts
--- load tools and Xresources
 function run_once(prg, arg_string, screen)
 	if not prg then
 		do return nil end
 	end
-	if not arg_string then 
+	if not arg_string then
 		awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")",screen)
 	else
 		awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. " " .. arg_string .. ")",screen)
 	end
 end
 
-run_once("xset", "b off", 1)
-run_once("xrdb", "-merge .Xresources", 1)
-run_once("setxkbmap", "-option compose:menu", 1)
-run_once("xrandr", "--output HDMI-1 --rotate left", 1)
-run_once(".dropbox-dist/dropboxd", nil, 1)
-run_once("pasystray", nil, 1)
+--run_once("xset", "b off", 1)
+--run_once("xrdb", "-merge .Xresources", 1)
+--run_once("setxkbmap", "-option compose:menu", 1)
+--run_once("xrandr", "--output HDMI-1 --rotate left", 1)
+--run_once("pasystray", nil, 1)
 -- }}}
