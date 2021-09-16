@@ -1,0 +1,18 @@
+# colored bash completition
+set colored-stats on
+
+# readline in vi mode
+set editing-mode vi
+
+# show mode
+set show-mode-in-prompt on
+
+# special prompt for different vi modes
+# set vi-ins-mode-string \1\e[5 q\e]12;yellow\a\2
+# set vi-cmd-mode-string \1\e[2 q\e]12;yellow\a\2
+set vi-ins-mode-string "\1\e[1;32m\2+\1\e[0m\2"
+set vi-cmd-mode-string "\1\e[1;31m\2:\1\e[0m\2"
+
+# some key bindings
+"jj": "\e"
+"jk": "\e"
