@@ -21,7 +21,7 @@ set number relativenumber
 " set numberwidth=5
 " height of bottom bar
 " set cmdheight=2
-set signcolumn=yes
+set signcolumn=number
 set showtabline=2
 set laststatus=2
 set noshowmode
@@ -54,7 +54,7 @@ nmap <leader>re :set noet<CR> :retab!<CR>
 " set smartindent
 set colorcolumn=80
 set cursorline
-" remap <ESC> 
+" remap <ESC>
 imap jk <ESC>
 imap kj <ESC>
 imap jj <ESC>
@@ -105,12 +105,15 @@ inoremap '<CR>	'<CR>'<Esc>O
 inoremap ''			'
 inoremap ..			<RIGHT>
 " surroundings
-nnoremap <Leader>s" ciw"<C-r>""<Esc>
-nnoremap <Leader>s' ciw'<C-r>"'<Esc>
-nnoremap <Leader>sx bhxwx
+nnoremap <Leader>w" ciw"<C-r>""<Esc>
+nnoremap <Leader>w' ciw'<C-r>"'<Esc>
+nnoremap <Leader>wx bhxwx
 " console.log()
 nnoremap <Leader>cl iconsole.log();<Esc>==$<left>i
 inoremap <Leader>cl <Esc>iconsole.log();<Esc>==$<left>i
+" var_dump()
+nnoremap <Leader>vd ivar_dump();<Esc>==$<left>i
+inoremap <Leader>vd <Esc>ivar_dump();<Esc>==$<left>i
 " buffers
 imap <Leader>j <Esc>:bnext<CR>
 imap <Leader>k <Esc>:bprev<CR>
@@ -153,7 +156,10 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 " eslint code format
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args='--standard=~/.php.ruleset.xml'
+let g:syntastic_php_phpcs_args = '--standard=~/.php.ruleset.xml'
+let g:syntastic_java_checkers = ['checkstyle']
+let g:syntastic_java_checkstyle_classpath = './apps/checkstyle/checkstyle-9.0-all.jar'
+let g:syntastic_java_checkstyle_conf_file = './apps/checkstyle/google_checks_modified.xml'
 " enable on <F10> or toggle leader <F10>
 nmap <F10> :SyntasticCheck<CR>
 nmap <Leader><F10> ::SyntasticToggleMode<CR>
@@ -168,14 +174,15 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
+nmap <F7> :Ranger<CR>
 " netrw
-nmap <F7> :Lex<CR>
-set autochdir
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_browse_split = 3
-let g:net_altv = 1
-let g:netrw_winsize = 25
+" nmap <F7> :Explore<CR>
+" set autochdir
+" let g:netrw_liststyle = 3
+" let g:netrw_banner = 0
+" let g:netrw_browse_split = 3
+" let g:net_altv = 1
+" let g:netrw_winsize = 25
 " neovim coc
 let g:coc_disable_startup_warning = 1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -184,3 +191,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" syntax highlighting on special file extensions
+autocmd BufNewFile,BufRead *.layout set syntax=html
+autocmd BufNewFile,BufRead *.txp    set syntax=html
