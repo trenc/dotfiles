@@ -64,8 +64,9 @@ end
 beautiful.init(".config/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv("EDITOR") or "vim"
+-- terminal = "xterm -e 'TERM=screen-256color-bce tmux'"
+terminal = "xterm -e 'tmux'"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -272,18 +273,22 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "k",
-        function ()
-            awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
-    ),
+    awful.key({ modkey,           }, "j",   awful.tag.viewprev,
+              {description = "view previous", group = "tag"}),
+    awful.key({ modkey,           }, "l",  awful.tag.viewnext,
+              {description = "view next", group = "tag"}),
+    -- awful.key({ modkey,           }, "j",
+    --     function ()
+    --         awful.client.focus.byidx( 1)
+    --     end,
+    --     {description = "focus next by index", group = "client"}
+    -- ),
+    -- awful.key({ modkey,           }, "k",
+    --     function ()
+    --         awful.client.focus.byidx(-1)
+    --     end,
+    --     {description = "focus previous by index", group = "client"}
+    -- ),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
@@ -505,6 +510,7 @@ awful.rules.rules = {
           "Kruler",
           "MessageWin",  -- kalarm.
           "mpv",
+          "Tilda",
           "Sxiv",
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",

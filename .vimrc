@@ -5,11 +5,11 @@ execute pathogen#infect()
 set timeoutlen=600
 "remap <Leader>
 let mapleader=","
-syntax on
+set syntax=on
 set encoding=utf-8
 " colorscheme
 set t_Co=16
-set background=dark
+" set background=dark
 " set termguicolors
 colorscheme selenized
 " colorscheme solarized
@@ -155,8 +155,8 @@ nnoremap ' `
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 " eslint code format
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = '--standard=~/.php.ruleset.xml'
+" let g:syntastic_php_checkers = ['php', 'phpcs']
+" let g:syntastic_php_phpcs_args = '--standard=~/.php.ruleset.xml'
 let g:syntastic_java_checkers = ['checkstyle']
 let g:syntastic_java_checkstyle_classpath = './apps/checkstyle/checkstyle-9.0-all.jar'
 let g:syntastic_java_checkstyle_conf_file = './apps/checkstyle/google_checks_modified.xml'
@@ -175,6 +175,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
 nmap <F7> :Ranger<CR>
+let g:ranger_replace_netrw = 1
 " netrw
 " nmap <F7> :Explore<CR>
 " set autochdir
@@ -183,6 +184,7 @@ nmap <F7> :Ranger<CR>
 " let g:netrw_browse_split = 3
 " let g:net_altv = 1
 " let g:netrw_winsize = 25
+
 " neovim coc
 let g:coc_disable_startup_warning = 1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

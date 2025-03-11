@@ -1,50 +1,50 @@
-shell mkdir kfo-versicherungsvergleich
-shell mkdir 2017-08-18-neu
-rename konfigurator-schritt-02.jpg
-rename konfigurator-schritt-03.jpg
+rename configs
+rename MatrixConfig.js
+rename objects
+rename Matrix.js
+rename MatrixObjects.js
+shell touch constants.js
+shell touch Booth.js
+rename boothMethods.js
+shell tou
+rename TraverseObjects.js
+rename traverse_1m.gltf
+rename Traverse_1m.gltf
+shell wget https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js
+rename 
+rename alpinejs.3.14.8.min.js
+shell 
+shell touch werkverzeichnis-scharff.txt
+rename zeitaufwand-3d-messekonfigurator.ods
 bulkrename 
-shell unp candicerenoir_slsdx264_s04e07.part1.rar 
-rename Candice Renoir - 4x07.mkv
-rename anfrage-02.jpg
-rename 2013-04-04-vema-seo
-shell mkdir 2017-09-29
-shell unp candicerenoir_slsdx264_s04e08.part1.rar 
-rename Candice Renoir - 4x08.mkv
-shell mkdir 2016
-shell vim reisekosten-info
-rename Unterlagen-Steuer_2016-2016.pdf
-rename pkv-kontoauszug-2016.pdf
-rename 2017-III.pdf
-search ent
-search mf
-open_with evince
-shell unp candicerenoir_slsdx264_s04e09.part1.rar 
-rename Candice Renoir - 4x09.mkv
-rename kunden-logo-02.jpg
-rename kunden-logo-03.jpg
-rename kunden-logo-04.jpg
-rename kunden-logo-05.jpg
-rename kunden-logo-06.jpg
-search har
-shell sctovim module.css 
-rename scripts.survey.js
-rename The Big Bang Theory - 11x02 - The Retraction Reaction.srt
-shell unp tbbtAL1102.rar 
-rename The Big Bang Theory - 11x02 - The Retraction Reaction.mkv
-shell mkdir 2017-10-06
-open_with vim
-shell mkdir stick
-shell mkdir ungeordnet
-search 
-shell mkdir yab_amazon_product_api
-search tomm
-search schu
-open_with 1
-shell -p d
-search conf
-rename solarized-ansi-dark.py.bak
-rename solarized-ansi-dark.py
-rename solarized-256color.py
-search im
-rename logo.20171011.svg
+shell mkdir 2025-02-18-edwin-scharff-museum
+shell touch fragen.md
+shell mkdir 2025-02-18-leibnitz
+rename 2025-02-18-leibnitz-lab
+rename 2025-02-18-leibniz-lab
+rename SpotLightTraverse.js
+rename SpotrlLightTraverse.js
+rename SpotlightTraverse.js
+shell unp Transfer.zip 
+shell touch huhu.log
+open_with lll
+open_with 
+shell touch TranslateContent.php
+shell touch TranslatePersons.php
+shell mkdir 2025-02-26-banner
+shell mkdir 2025-02-26-personentabelle_geburtsregion
+find 
+shell touch custom_field.txp
+rename docs-steuer
+shell mkdir -p grima/nightside
+shell unp Grima\ -\ Nightside.zip 
+shell convert cover.jpg -resize 600 cover.jpg
+search grima
+rename edwin-scharff-museum-angebot-v2.md
+open_with brave-browser
+rename 2025_03_05_142800_add_smt_data_columns_to_persons_table.php
+rename current.m3u
+open_with nvim
 delete
+shell
+rename boat.json
